@@ -6,19 +6,23 @@
       "type": "php",
       "request": "launch",
       "runtimeArgs": ["-S", "localhost:8000", "-t", "${workspaceFolder}"],
-      "port": 9003,
       "serverReadyAction": {
         "action": "openExternally",
-        "pattern": "Development Server \\(http://localhost:8000\\) started",
+        "pattern": "Development Server .*http://localhost:8000.*",
         "uriFormat": "http://localhost:8000"
       }
     },
-
     {
       "name": "Listen for Xdebug",
       "type": "php",
       "request": "launch",
       "port": 9003
+    }
+  ],
+  "compounds": [
+    {
+      "name": "Server + Debug",
+      "configurations": ["Run PHP Built-in Server (8000)", "Listen for Xdebug"]
     }
   ]
 }
