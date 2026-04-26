@@ -1,0 +1,158 @@
+:root {
+    --primary-blue: #002366; /* Deep Navy from Logo */
+    --accent-gold: #FFD700;  /* Gold/Yellow from Logo */
+    --bg-light: #f4f7f6;
+    --text-dark: #333;
+    --white: #ffffff;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+}
+
+body {
+    background-color: var(--bg-light);
+}
+
+/* Layout Structure */
+.container {
+    display: flex;
+    min-height: 100vh;
+}
+
+/* Sidebar Styling */
+.sidebar {
+    width: 280px;
+    background-color: var(--primary-blue);
+    color: var(--white);
+    display: flex;
+    flex-direction: column;
+    box-shadow: 4px 0 10px rgba(0,0,0,0.1);
+}
+
+.logo-wrap {
+    padding: 30px 20px;
+    text-align: center;
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+}
+
+.logo-wrap img {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    border: 3px solid var(--accent-gold);
+    background: white;
+    margin-bottom: 15px;
+}
+
+.logo-text h3 {
+    font-size: 1.1rem;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+
+.logo-text p {
+    font-size: 0.8rem;
+    color: var(--accent-gold);
+    opacity: 0.9;
+}
+
+/* Navigation Menu */
+.menu {
+    padding: 20px 15px;
+    flex-grow: 1;
+}
+
+.menu a {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    text-decoration: none;
+    color: rgba(255,255,255,0.8);
+    padding: 12px 15px;
+    margin-bottom: 8px;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+    font-size: 0.95rem;
+}
+
+.menu a:hover {
+    background: rgba(255,255,255,0.1);
+    color: var(--white);
+}
+
+.menu a.active {
+    background: var(--accent-gold);
+    color: var(--primary-blue);
+    font-weight: bold;
+}
+
+.logout {
+    margin-top: 50px;
+    border-top: 1px solid rgba(255,255,255,0.1);
+    padding-top: 20px !important;
+}
+
+/* Main Content Area */
+.main {
+    flex: 1;
+    padding: 30px;
+}
+
+.header {
+    background: var(--white);
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+    margin-bottom: 30px;
+}
+
+.header h1 {
+    color: var(--primary-blue);
+    font-size: 1.5rem;
+}
+
+.welcome-box {
+    margin-bottom: 30px;
+}
+
+/* Summary Cards */
+.cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 25px;
+}
+
+.card {
+    background: var(--white);
+    padding: 25px;
+    border-radius: 12px;
+    border-left: 5px solid var(--accent-gold);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+    transition: transform 0.3s ease;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+}
+
+.card h3 {
+    font-size: 0.9rem;
+    color: #777;
+    text-transform: uppercase;
+    margin-bottom: 10px;
+}
+
+.card p {
+    font-size: 1.8rem;
+    color: var(--primary-blue);
+    font-weight: 800;
+}
+
+@media (max-width: 768px) {
+    .container { flex-direction: column; }
+    .sidebar { width: 100%; min-height: auto; }
+}

@@ -1,0 +1,153 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Sege UI', sans-serif;
+}
+
+body {
+    height: 100vh;
+    background: url('../img/pbbackground.jpg') no-repeat center center/cover;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    position: relative;
+}
+/* Dark Overlay */
+.overlay{
+position: absolute;
+width: 100%;
+height: 100%;
+background: rgba(0,0,0,0.55);
+backdrop-filter: blur(4px);
+}
+/* Center Box */
+.login-wrapper{
+    position:relative;
+    z-index:2;
+}
+/* Login Box */
+.login-container {
+    width:380px;
+    padding:40px 35px;
+    border-radius:20px;
+    background:rgba(255,255,255,0.12);
+    border:1px solid rgba(255,255,255,0.2);
+    backdrop-filter:blur(15px);
+    box-shadow:0 10px 35px rgba(0,0,0,0.35);
+    animation:fadeUp 1s ease;
+}
+@keyframes fadeUp{
+    from{
+        opacity:0;
+        transform:translateY(40px);
+    }
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+}
+.login-container h2{
+    text-align:center;
+    color:#fff;
+    font-size:32px;
+    margin-bottom:5px;
+}
+subtitle{
+    text-align:center;
+    color:#ddd;
+    margin-bottom:30px;
+    font-size:14px;
+}
+/* Floating Inputs */
+.input-box{
+    position:relative;
+    margin-bottom:28px;
+}
+.input-box input{
+    width:100%;
+    padding:14px 5px 8px;
+    font-size:16px;
+    color:#ffffff;
+    background:transparent;
+    border:none;
+    border-bottom:2px solid rgba(255,255,255,0.65);
+    outline:none;
+    transition:0.3s;
+}
+.input-box label{
+    position:absolute;
+    left:10px;
+    top:14px;
+    color:#ddd;
+    pointer-events:none;
+    transition:.3s;
+}
+
+/* Floating Animation */
+.input-box input:focus + label,
+.input-box input:valid + label{
+    top:-10px;
+    left:5px;
+    font-size:12px;
+    color:#4da6ff;
+}
+
+.input-box input:focus{
+    border-bottom:2px solid #4da6ff;
+}
+
+/* Blue Button */
+button{
+    width:100%;
+    padding:14px;
+    border:none;
+    border-radius:10px;
+    background:linear-gradient(135deg,#007bff,#0056d2);
+    color:#fff;
+    font-size:16px;
+    font-weight:bold;
+    cursor:pointer;
+    transition:.3s;
+    box-shadow:0 5px 15px rgba(0,123,255,0.35);
+}
+
+button:hover{
+    transform:translateY(-2px);
+    box-shadow:0 8px 20px rgba(0,123,255,0.45);
+}
+
+/* Alerts */
+.success,
+.error{
+    padding:12px;
+    border-radius:8px;
+    margin-bottom:18px;
+    text-align:center;
+    font-size:14px;
+    animation:fadeIn .5s ease;
+}
+
+.success{
+    background:#d4edda;
+    color:#155724;
+}
+
+.error{
+    background:#f8d7da;
+    color:#721c24;
+}
+
+@keyframes fadeIn{
+    from{opacity:0;}
+    to{opacity:1;}
+}
+
+/* Responsive */
+@media(max-width:450px){
+    .login-container{
+        width:90%;
+        padding:30px 25px;
+    }
+}
