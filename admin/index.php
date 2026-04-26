@@ -1,14 +1,16 @@
 <?php
-include_once 'db_function/db.php';
+include_once '../db_function/db.php';
 ?>
 
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <title>People's Bank Dashboard</title>
     <link rel="stylesheet" href="css/style.css">
 </head>
+
 <body>
 
     <!-- Header -->
@@ -18,7 +20,7 @@ include_once 'db_function/db.php';
 
     <div class="container">
         <!-- Sidebar -->
-        <?php include_once 'includes/sidebar.php'; ?>
+        <?php include_once '../includes/sidebar.php'; ?>
 
         <!-- Main Content -->
         <main class="main">
@@ -30,20 +32,30 @@ include_once 'db_function/db.php';
             <!-- Summary Cards -->
             <section class="cards">
                 <div class="card">
-                    <h3>Total Expenses</h3>
-                    <p>₱1000</p>
+                    <h3>Total Topics</h3>
+                    <p><?php
+                        $stmt = $pdo->query("SELECT COUNT(*) as count FROM topics");
+                        echo $stmt->fetch()['count'];
+                        ?></p>
                 </div>
                 <div class="card">
-                    <h3>This Month</h3>
-                    <p>₱1000</p>
+                    <h3>Published Topics</h3>
+                    <p><?php
+                        $stmt = $pdo->query("SELECT COUNT(*) as count FROM topics WHERE status = 'published'");
+                        echo $stmt->fetch()['count'];
+                        ?></p>
                 </div>
                 <div class="card">
-                    <h3>Remaining Balance</h3>
-                      <p>₱1000</p>
+                    <h3>Total Content</h3>
+                    <p><?php
+                        $stmt = $pdo->query("SELECT COUNT(*) as count FROM topic_content");
+                        echo $stmt->fetch()['count'];
+                        ?></p>
                 </div>
             </section>
         </main>
     </div>
 
 </body>
+
 </html>

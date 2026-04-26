@@ -1,6 +1,6 @@
 <?php
 session_start();
-require_once "connection.php"; // adjust path if needed
+require_once "db.php"; // Use unified database connection
 
 if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
@@ -27,7 +27,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                 $_SESSION['username'] = $user['username'];
 
                 // Redirect to dashboard or home page
-                header("Location: ../index.php"); // create this page later
+                header("Location: ../admin/index.php"); // Redirect to admin panel
                 exit();
             } else {
                 // Password incorrect
@@ -39,11 +39,9 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
             header("Location: login.php?error=not_found");
             exit();
         }
-
     } catch (PDOException $e) {
         die("Database Error: " . $e->getMessage());
     }
-
 } else {
     // If not POST, redirect back to login
     header("Location: login.php");

@@ -14,6 +14,7 @@
         <div class="collapse navbar-collapse" id="nav">
             <ul class="navbar-nav ms-auto">
                 <li class="nav-item"><a class="nav-link" href="about.php">About Us</a></li>
+                <li class="nav-item"><a class="nav-link" href="topics.php">Topics</a></li>
                 <li class="nav-item"><a class="nav-link" href="index.php#news">What's New</a></li>
                 <li class="nav-item"><a class="nav-link" href="index.php#services">Products & Services</a></li>
                 <li class="nav-item"><a class="nav-link" href="index.php#membership">Membership</a></li>
