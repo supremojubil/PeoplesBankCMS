@@ -18,8 +18,43 @@ include_once 'db_function/db.php';
             font-family: Arial, sans-serif;
         }
 
+        /* Smooth transition for the navbar background */
         .navbar {
-            box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+            transition: all 0.4s ease-in-out;
+            padding: 15px 0; /* Slightly larger initial padding */
+        }
+
+        /* Effect when scrolling down */
+        .navbar.scrolled {
+            background-color: #ffffff !important;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            padding: 5px 0; /* Shrink effect */
+        }
+
+        /* Animated Underline for Nav Links */
+        .nav-link {
+            position: relative;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: 0;
+            left: 0;
+            background-color: #0d6efd; /* Your text-primary color */
+            transition: width 0.3s ease;
+        }
+
+        .nav-link:hover::after {
+            width: 100%;
+        }
+
+        .nav-link:hover {
+            color: #0d6efd !important;
         }
 
         .hero {

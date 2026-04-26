@@ -10,7 +10,43 @@
     <style>
         .page-header { background: #f8f9fa; padding: 60px 0; border-bottom: 1px solid #dee2e6; }
         .section-padding { padding: 80px 0; }
-        
+        .navbar {
+            transition: all 0.4s ease-in-out;
+            padding: 15px 0; /* Slightly larger initial padding */
+        }
+
+        /* Effect when scrolling down */
+        .navbar.scrolled {
+            background-color: #ffffff !important;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            padding: 5px 0; /* Shrink effect */
+        }
+
+        /* Animated Underline for Nav Links */
+        .nav-link {
+            position: relative;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: 0;
+            left: 0;
+            background-color: #0d6efd; /* Your text-primary color */
+            transition: width 0.3s ease;
+        }
+
+        .nav-link:hover::after {
+            width: 100%;
+        }
+
+        .nav-link:hover {
+            color: #0d6efd !important;
+        }
         /* Background Image Section */
         .bg-concept {
             background: linear-gradient(rgba(0, 43, 91, 0.85), rgba(0, 43, 91, 0.85)), 
