@@ -21,8 +21,8 @@ $current_page = basename($_SERVER['PHP_SELF']);
                 <li class="nav-item"><a class="nav-link mx-2" href="about.php">About Us</a></li>
                 <li class="nav-item"><a class="nav-link mx-2" href="topics.php">Topics</a></li>
                 <li class="nav-item"><a class="nav-link mx-2" href="index.php#news">What's New</a></li>
-                <li class="nav-item"><a class="nav-link mx-2" href="index.php#services">Products & Services</a></li>
-                <li class="nav-item"><a class="nav-link mx-2" href="index.php#membership">Membership</a></li>
+                <li class="nav-item"><a class="nav-link mx-2" href="productservices.php">Products & Services</a></li>
+                <li class="nav-item"><a class="nav-link mx-2" href="membership.php">Membership</a></li>
                 <li class="nav-item"><a class="nav-link mx-2" href="index.php#contact">Contact Us</a></li>
             </ul>
         </div>
