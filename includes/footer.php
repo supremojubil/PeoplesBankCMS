@@ -1,10 +1,10 @@
 <div class="footer">
     <div class="container">
         <div class="row align-items-center">
-            <div class="col-md-2 text-center text-md-start mb-3 mb-md-0">
-                <img src="assets/img/peoplesbanklogo.jpg" alt="Logo" style="max-width:90px; height:auto;">
+            <div class="col-md-3 text-center text-md-start mb-3 mb-md-0">
+                <img src="assets/img/peoplesbanklogo.jpg" alt="Logo" style="max-width:160px; height:auto; display:block; margin:0 auto 0 0;">
             </div>
-            <div class="col-md-10">
+            <div class="col-md-9 text-md-start">
                 <h5 class="mb-2">People's Bank</h5>
                 <p class="mb-1"><i class="bi bi-geo-alt-fill"></i> <strong>PUBLIC MALL DRIVE, OZAMIZ CITY</strong></p>
                 <p class="mb-1"><i class="bi bi-telephone-fill"></i> <strong>(088) 521-0296 / 521-4842</strong></p>
