@@ -1,6 +1,6 @@
 <aside class="sidebar">
     <div class="logo-wrap">
-        <img src="..img/peoplesbanklogo.jpg" alt="Logo">
+        <img src="../assets/img/peoplesbanklogo.jpg" alt="Logo">
         <div class="logo-text">
             <h3>People's Bank</h3>
             <p>Admin Panel</p>

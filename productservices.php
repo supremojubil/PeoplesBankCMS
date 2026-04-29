@@ -284,15 +284,6 @@
             box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
         }
 
-        /* Footer */
-        footer {
-            background: var(--primary-blue);
-            color: white;
-            padding: 40px 0;
-            text-align: center;
-            margin-top: 60px;
-        }
-
         /* Responsive */
         @media (max-width: 768px) {
             .page-header h1 {

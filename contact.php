@@ -114,16 +114,16 @@ include_once 'db_function/db.php';
             color: #0d6efd;
         }
         .map-placeholder {
-            min-height: 300px;
+            min-height: 320px;
             border-radius: 18px;
             overflow: hidden;
-            background: linear-gradient(135deg, rgba(13,110,253,0.1), rgba(0,35,102,0.06));
-            display: grid;
-            place-items: center;
-            color: #0d6efd;
-            font-size: 1.05rem;
-            text-align: center;
-            border: 1px solid rgba(13,110,253,0.1);
+            background: #eef4ff;
+            border: 1px solid rgba(13,110,253,0.15);
+        }
+        .map-placeholder iframe {
+            width: 100%;
+            height: 100%;
+            border: 0;
         }
         .contact-detail {
             margin-bottom: 24px;
@@ -200,7 +200,7 @@ include_once 'db_function/db.php';
                         </div>
                     </div>
                     <div class="map-placeholder mt-4">
-                        Branch area location visual coming soon
+                        <iframe src="https://maps.google.com/maps?q=City%20Public%20Mall%20Drive%2C%20P-1%20San%20Roque%2C%20Ozamiz%20City&t=&z=15&ie=UTF8&iwloc=&output=embed" allowfullscreen loading="lazy"></iframe>
                     </div>
                 </div>
             </div>
@@ -267,10 +267,7 @@ include_once 'db_function/db.php';
                             <div class="col-md-6">
                                 <label class="form-label">Branch Inquiry</label>
                                 <select name="branch" class="form-select" required>
-                                    <option selected value="">Select branch</option>
-                                    <option value="City Public Mall Drive, P-1 San Roque, Ozamiz City">City Public Mall Drive</option>
-                                    <option value="Sample Address 2, Building B, Ozamiz City">Sample Branch 2</option>
-                                    <option value="Another Sample Branch Address, Ozamiz City">Sample Branch 3</option>
+                                    <option selected value="City Public Mall Drive, P-1 San Roque, Ozamiz City">Main Branch - City Public Mall Drive</option>
                                 </select>
                             </div>
                         </div>
@@ -285,25 +282,11 @@ include_once 'db_function/db.php';
         </div>
 
         <div class="row mt-5 g-4">
-            <div class="col-lg-4">
+            <div class="col-lg-6">
                 <div class="branch-card">
-                    <h3>Branch 1</h3>
+                    <h3>Main Branch</h3>
                     <p>City Public Mall Drive, P-1 San Roque, Ozamiz City</p>
                     <span class="badge bg-primary">Main Branch</span>
-                </div>
-            </div>
-            <div class="col-lg-4">
-                <div class="branch-card">
-                    <h3>Branch 2</h3>
-                    <p>Sample Address 2, Building B, Ozamiz City</p>
-                    <span class="badge bg-secondary">Sample</span>
-                </div>
-            </div>
-            <div class="col-lg-4">
-                <div class="branch-card">
-                    <h3>Branch 3</h3>
-                    <p>Another Sample Branch Address, Ozamiz City</p>
-                    <span class="badge bg-secondary">Sample</span>
                 </div>
             </div>
         </div>
@@ -311,12 +294,10 @@ include_once 'db_function/db.php';
         <div class="row mt-5">
             <div class="col-12">
                 <div class="info-panel">
-                    <h2>Branch Area Location</h2>
-                    <p>Our branches are strategically placed to serve members in and around Ozamiz City with convenience and quick access. Use the branch listing above for location details, and feel free to call or email for direct support.</p>
+                    <h2>Main Branch Location</h2>
+                    <p>We currently operate from a single main branch in Ozamiz City. Contact us using the details above, and our team will assist you with all inquiries.</p>
                     <ul class="branch-list">
                         <li><i class="bi bi-check-circle-fill"></i> City Public Mall Drive, P-1 San Roque, Ozamiz City</li>
-                        <li><i class="bi bi-check-circle-fill"></i> Sample Address 2, Building B, Ozamiz City</li>
-                        <li><i class="bi bi-check-circle-fill"></i> Another Sample Branch Address, Ozamiz City</li>
                     </ul>
                 </div>
             </div>

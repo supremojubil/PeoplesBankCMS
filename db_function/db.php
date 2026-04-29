@@ -1,9 +1,9 @@
 <?php
 $host = "localhost";
-$port = 3309;
+$port = 3306;
 $dbname = "cms_db";
-$user = "adminserver";
-$pass = "admin123!@#";
+$user = "root";
+$pass = "";
 
 try {
    $pdo = new PDO(
