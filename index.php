@@ -258,7 +258,7 @@ $topics = $stmt2->fetchAll();
 <!-- TOPICS -->
 <section class="py-5 bg-light">
     <div class="container">
-        <h2 class="section-title">📚 Latest Topics</h2>
+        <h2 class="section-title">📚 Latest Reports</h2>
 
         <div class="row g-4">
             <?php foreach ($topics as $t): ?>
@@ -266,14 +266,14 @@ $topics = $stmt2->fetchAll();
                     <div class="card-box">
                         <h5><?= htmlspecialchars($t['title']) ?></h5>
                         <p><?= substr(strip_tags($t['description']), 0, 120) ?>...</p>
-                        <a href="topics.php" class="btn btn-sm btn-primary">View</a>
+                        <a href="reports.php" class="btn btn-sm btn-primary">View</a>
                     </div>
                 </div>
             <?php endforeach; ?>
         </div>
 
         <div class="text-center mt-4">
-            <a href="topics.php" class="btn btn-outline-primary">View All Topics</a>
+            <a href="reports.php" class="btn btn-outline-primary">View All Reports</a>
         </div>
     </div>
 </section>
