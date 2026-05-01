@@ -58,6 +58,20 @@ CREATE TABLE IF NOT EXISTS announcements (
     FOREIGN KEY (created_by) REFERENCES users(id)
 );
 
+-- Member stories table for membership page testimonials
+CREATE TABLE IF NOT EXISTS member_stories (
+    id INT PRIMARY KEY AUTO_INCREMENT,
+    name VARCHAR(255) NOT NULL,
+    position VARCHAR(255),
+    story TEXT NOT NULL,
+    image VARCHAR(500),
+    status ENUM('active', 'inactive') DEFAULT 'active',
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+    created_by INT,
+    FOREIGN KEY (created_by) REFERENCES users(id)
+);
+
 -- Insert default admin user (password: admin123)
 INSERT IGNORE INTO users (username, password, email, role) VALUES
 ('admin', 'admin123', 'admin@peoplesbank.com', 'admin');
@@ -66,3 +80,9 @@ INSERT IGNORE INTO users (username, password, email, role) VALUES
 INSERT IGNORE INTO topics (title, description, slug, status, created_by) VALUES
 ('Welcome to People''s Bank', 'Introduction to our banking services', 'welcome', 'published', 1),
 ('Online Banking Guide', 'How to use our online banking platform', 'online-banking', 'published', 1);
+
+-- Sample member stories
+INSERT IGNORE INTO member_stories (name, position, story, status, created_by) VALUES
+('Maria Dela Cruz', 'Small Business Owner', 'Joining the cooperative gave me peace of mind and helped me grow my savings while also gaining access to affordable loan options for my business.', 'active', 1),
+('Juan Santos', 'Teacher', 'The cooperative has been instrumental in helping me save for my family''s future while providing educational loans for my children''s schooling.', 'active', 1),
+('Ana Reyes', 'Farmer', 'As a farmer, I appreciate how the cooperative supports agricultural development with fair loan terms and community programs.', 'active', 1);

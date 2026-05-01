@@ -1,4 +1,11 @@
-<?php include_once 'db_function/db.php'; ?>
+<?php
+include_once 'db_function/db.php';
+
+// Fetch active member stories
+$stmt = $pdo->prepare("SELECT * FROM member_stories WHERE status = 'active' ORDER BY created_at DESC LIMIT 3");
+$stmt->execute();
+$member_stories = $stmt->fetchAll();
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -371,9 +378,31 @@
         </div>
 
         <div class="image-grid">
-            <img src="assets/img/member.jpg" alt="Member Image 1">
-            <img src="assets/img/member1.jpg" alt="Member Image 2">
-            <img src="assets/img/member2.jpg" alt="Member Image 3">
+            <?php if (count($member_stories) > 0): ?>
+                <?php foreach ($member_stories as $story): ?>
+                    <div class="testimonial-card">
+                        <p>"<?php echo htmlspecialchars($story['story']); ?>"</p>
+                        <div class="testimonial-author">
+                            <div>
+                                <strong><?php echo htmlspecialchars($story['name']); ?></strong>
+                                <span><?php echo htmlspecialchars($story['position'] ?? 'Member'); ?></span>
+                            </div>
+                        </div>
+                    </div>
+                <?php endforeach; ?>
+            <?php else: ?>
+                <div class="col-12 text-center">
+                    <div class="testimonial-card">
+                        <p>"Joining the cooperative gave me peace of mind and helped me grow my savings while also gaining access to affordable loan options for my business."</p>
+                        <div class="testimonial-author">
+                            <div>
+                                <strong>Maria Dela Cruz</strong>
+                                <span>Small Business Owner</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            <?php endif; ?>
         </div>
     </div>
 </section>
@@ -409,14 +438,24 @@
             </div>
             <div class="col-lg-6">
                 <div class="testimonial-card">
-                    <p>“Joining the cooperative gave me peace of mind and helped me grow my savings while also gaining access to affordable loan options for my business.”</p>
-                    <div class="testimonial-author">
-                        <img src="assets/img/member1.jpg" alt="Member testimonial">
-                        <div>
-                            <strong>Maria Dela Cruz</strong>
-                            <span>Small Business Owner</span>
+                    <?php if (count($member_stories) > 0): ?>
+                        <p>"<?php echo htmlspecialchars($member_stories[0]['story']); ?>"</p>
+                        <div class="testimonial-author">
+                            <div>
+                                <strong><?php echo htmlspecialchars($member_stories[0]['name']); ?></strong>
+                                <span><?php echo htmlspecialchars($member_stories[0]['position'] ?? 'Member'); ?></span>
+                            </div>
                         </div>
-                    </div>
+                    <?php else: ?>
+                        <p>"Joining the cooperative gave me peace of mind and helped me grow my savings while also gaining access to affordable loan options for my business."</p>
+                        <div class="testimonial-author">
+                            <img src="assets/img/member1.jpg" alt="Member testimonial">
+                            <div>
+                                <strong>Maria Dela Cruz</strong>
+                                <span>Small Business Owner</span>
+                            </div>
+                        </div>
+                    <?php endif; ?>
                 </div>
             </div>
         </div>

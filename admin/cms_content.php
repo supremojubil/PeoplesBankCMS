@@ -599,7 +599,7 @@ $fileContent = $stmt->fetch()['count'];
                 <p>Manage and organize content for this topic</p>
             </div>
             <a href="cms_topics.php" class="back-button">
-                <i class="fas fa-arrow-left"></i> Back to Topics
+                <i class="fas fa-arrow-left"></i> Back to Reports
             </a>
         </div>
 

@@ -19,7 +19,7 @@ $current_page = basename($_SERVER['PHP_SELF']);
         <div class="collapse navbar-collapse" id="nav">
             <ul class="navbar-nav ms-auto">
                 <li class="nav-item"><a class="nav-link mx-2 <?php echo $current_page === 'about.php' ? 'active' : ''; ?>" href="about.php">About Us</a></li>
-                <li class="nav-item"><a class="nav-link mx-2 <?php echo $current_page === 'topics.php' ? 'active' : ''; ?>" href="topics.php">Topics</a></li>
+                <li class="nav-item"><a class="nav-link mx-2 <?php echo $current_page === 'topics.php' ? 'active' : ''; ?>" href="reports.php">Reports</a></li>
                 <li class="nav-item"><a class="nav-link mx-2 <?php echo $current_page === 'announcement.php' ? 'active' : ''; ?>" href="announcement.php">What's New</a></li>
                 <li class="nav-item"><a class="nav-link mx-2 <?php echo $current_page === 'productservices.php' ? 'active' : ''; ?>" href="productservices.php">Products & Services</a></li>
                 <li class="nav-item"><a class="nav-link mx-2 <?php echo $current_page === 'membership.php' ? 'active' : ''; ?>" href="membership.php">Membership</a></li>

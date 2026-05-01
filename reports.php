@@ -12,7 +12,7 @@ $topics = $stmt->fetchAll();
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Topics - People's Bank</title>
+    <title>Reports - People's Bank</title>
 
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
@@ -180,7 +180,7 @@ $topics = $stmt->fetchAll();
 <!-- HEADER -->
 <div class="page-header">
     <div class="container">
-        <h1>Topics</h1>
+        <h1>Reports</h1>
         <p>News, guides, and important information</p>
     </div>
 </div>
@@ -188,13 +188,13 @@ $topics = $stmt->fetchAll();
 <!-- CONTENT -->
 <div class="container py-5">
 
-    <h2 class="section-title">Latest Topics</h2>
+    <h2 class="section-title">Latest Reports</h2>
 
     <div class="row g-4">
 
         <?php if (empty($topics)): ?>
             <div class="col-12 text-center text-muted">
-                No topics available.
+                No reports available.
             </div>
         <?php endif; ?>
 

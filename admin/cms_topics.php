@@ -101,7 +101,7 @@ $archivedTopics = $pdo->query("SELECT COUNT(*) as count FROM topics WHERE status
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CMS Topics Management - People's Bank</title>
+    <title>Report Management - People's Bank</title>
     <link rel="stylesheet" href="../assets/css/style.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
@@ -535,8 +535,8 @@ $archivedTopics = $pdo->query("SELECT COUNT(*) as count FROM topics WHERE status
     <div class="cms-container">
         <!-- Header -->
         <div class="topics-header">
-            <h1 class="page-title">Topics Management</h1>
-            <p class="page-subtitle">Create, edit, and organize your CMS topics</p>
+            <h1 class="page-title">Report Management</h1>
+            <p class="page-subtitle">Create, edit, and organize your reports</p>
         </div>
 
         <!-- Success Message -->
@@ -558,7 +558,7 @@ $archivedTopics = $pdo->query("SELECT COUNT(*) as count FROM topics WHERE status
         <div class="stats-container">
             <div class="stat-card">
                 <div class="stat-icon"><i class="fas fa-file-alt"></i></div>
-                <div class="stat-label">Total Topics</div>
+                <div class="stat-label">Total Reports</div>
                 <div class="stat-value"><?php echo $totalTopics; ?></div>
             </div>
             <div class="stat-card published">
@@ -581,7 +581,7 @@ $archivedTopics = $pdo->query("SELECT COUNT(*) as count FROM topics WHERE status
         <!-- Controls Section -->
         <div class="controls-section">
             <form method="GET" style="display: flex; gap: 8px; flex: 1; max-width: 600px;">
-                <input type="text" name="search" placeholder="Search topics..." value="<?php echo htmlspecialchars($search); ?>" class="form-control">
+                <input type="text" name="search" placeholder="Search reports..." value="<?php echo htmlspecialchars($search); ?>" class="form-control">
                 <select name="status_filter" class="form-control" style="min-width: 140px;">
                     <option value="">All Status</option>
                     <option value="published" <?php echo $statusFilter === 'published' ? 'selected' : ''; ?>>Published</option>
@@ -593,7 +593,7 @@ $archivedTopics = $pdo->query("SELECT COUNT(*) as count FROM topics WHERE status
                 </button>
             </form>
             <button class="btn-create" data-bs-toggle="modal" data-bs-target="#createTopicModal">
-                <i class="fas fa-plus"></i> New Topic
+                <i class="fas fa-plus"></i> New Report
             </button>
         </div>
 
@@ -604,8 +604,8 @@ $archivedTopics = $pdo->query("SELECT COUNT(*) as count FROM topics WHERE status
                     <div class="empty-state-icon">
                         <i class="fas fa-inbox"></i>
                     </div>
-                    <div class="empty-state-text">No topics found</div>
-                    <p style="font-size: 13px; margin-bottom: 0;">Create your first topic to get started</p>
+                    <div class="empty-state-text">No Report found</div>
+                    <p style="font-size: 13px; margin-bottom: 0;">Create your first report to get started</p>
                 </div>
             <?php else: ?>
                 <div class="table-responsive">
@@ -649,7 +649,7 @@ $archivedTopics = $pdo->query("SELECT COUNT(*) as count FROM topics WHERE status
                                             <a href="cms_content.php?topic_id=<?php echo $topic['id']; ?>" class="btn-action manage" title="Manage Content">
                                                 <i class="fas fa-folder-open"></i> Manage
                                             </a>
-                                            <a href="cms_topics.php?delete=<?php echo $topic['id']; ?>" class="btn-action delete" onclick="return confirm('Are you sure you want to delete this topic and its content?');" title="Delete">
+                                            <a href="cms_topics.php?delete=<?php echo $topic['id']; ?>" class="btn-action delete" onclick="return confirm('Are you sure you want to delete this report and its content?');" title="Delete">
                                                 <i class="fas fa-trash"></i>
                                             </a>
                                         </div>
@@ -661,7 +661,7 @@ $archivedTopics = $pdo->query("SELECT COUNT(*) as count FROM topics WHERE status
                                     <div class="modal-dialog">
                                         <div class="modal-content">
                                             <div class="modal-header">
-                                                <h5 class="modal-title">Topic Details</h5>
+                                                <h5 class="modal-title">Report Details</h5>
                                                 <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
                                             </div>
                                             <div class="modal-body">
@@ -702,14 +702,14 @@ $archivedTopics = $pdo->query("SELECT COUNT(*) as count FROM topics WHERE status
                                     <div class="modal-dialog">
                                         <div class="modal-content">
                                             <div class="modal-header">
-                                                <h5 class="modal-title">Edit Topic</h5>
+                                                <h5 class="modal-title">Edit Report</h5>
                                                 <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
                                             </div>
                                             <form method="POST">
                                                 <div class="modal-body">
                                                     <input type="hidden" name="topic_id" value="<?php echo $topic['id']; ?>">
                                                     <div class="mb-3">
-                                                        <label class="form-label">Topic Title</label>
+                                                        <label class="form-label">Report Title</label>
                                                         <input type="text" class="form-control" name="title" value="<?php echo htmlspecialchars($topic['title']); ?>" required>
                                                     </div>
                                                     <div class="mb-3">
@@ -727,7 +727,7 @@ $archivedTopics = $pdo->query("SELECT COUNT(*) as count FROM topics WHERE status
                                                 </div>
                                                 <div class="modal-footer" style="padding: 12px; gap: 8px;">
                                                     <button type="button" class="btn btn-secondary btn-sm" data-bs-dismiss="modal">Cancel</button>
-                                                    <button type="submit" name="update_topic" class="btn btn-primary btn-sm">Update Topic</button>
+                                                    <button type="submit" name="update_topic" class="btn btn-primary btn-sm">Update Report</button>
                                                 </div>
                                             </form>
                                         </div>
@@ -746,18 +746,18 @@ $archivedTopics = $pdo->query("SELECT COUNT(*) as count FROM topics WHERE status
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title">Create New Topic</h5>
+                    <h5 class="modal-title">Create New Report</h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
                 </div>
                 <form method="POST">
                     <div class="modal-body">
                         <div class="mb-3">
-                            <label class="form-label">Topic Title <span style="color: red;">*</span></label>
-                            <input type="text" class="form-control" name="title" placeholder="Enter topic title" required>
+                            <label class="form-label">Report Title <span style="color: red;">*</span></label>
+                            <input type="text" class="form-control" name="title" placeholder="Enter report title" required>
                         </div>
                         <div class="mb-3">
                             <label class="form-label">Description</label>
-                            <textarea class="form-control" name="description" rows="4" placeholder="Enter topic description"></textarea>
+                            <textarea class="form-control" name="description" rows="4" placeholder="Enter report description"></textarea>
                         </div>
                         <div class="mb-3">
                             <label class="form-label">Initial Status</label>
@@ -769,7 +769,7 @@ $archivedTopics = $pdo->query("SELECT COUNT(*) as count FROM topics WHERE status
                     </div>
                     <div class="modal-footer" style="padding: 12px; gap: 8px;">
                         <button type="button" class="btn btn-secondary btn-sm" data-bs-dismiss="modal">Cancel</button>
-                        <button type="submit" name="create_topic" class="btn btn-primary btn-sm">Create Topic</button>
+                        <button type="submit" name="create_topic" class="btn btn-primary btn-sm">Create Report</button>
                     </div>
                 </form>
             </div>

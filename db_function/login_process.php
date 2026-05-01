@@ -15,7 +15,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
     try {
         // Query user from database
-        $stmt = $pdo->prepare("SELECT id, username, password FROM users WHERE username = :username");
+        $stmt = $pdo->prepare("SELECT id, username, password, role FROM users WHERE username = :username");
         $stmt->execute(['username' => $username]);
         $user = $stmt->fetch(PDO::FETCH_ASSOC);
 
@@ -25,6 +25,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                 // ✅ Login successful
                 $_SESSION['user_id'] = $user['id'];
                 $_SESSION['username'] = $user['username'];
+                 $_SESSION['role'] = $user['role'];
 
                 // Redirect to dashboard or home page
                 header("Location: ../admin/index.php"); // Redirect to admin panel
