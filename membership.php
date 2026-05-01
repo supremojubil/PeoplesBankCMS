@@ -33,6 +33,31 @@
             box-shadow: 0 2px 10px rgba(0,0,0,0.08);
         }
 
+        .nav-link {
+            position: relative;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: 0;
+            left: 0;
+            background-color: #0d6efd;
+            transition: width 0.3s ease;
+        }
+
+        .nav-link:hover::after {
+            width: 100%;
+        }
+
+        .nav-link:hover {
+            color: #0d6efd !important;
+        }
+
         .hero-membership {
             position: relative;
             background: linear-gradient(135deg, rgba(0,35,102,0.9), rgba(13,110,253,0.9)), url('assets/img/member.jpg') center/cover no-repeat;

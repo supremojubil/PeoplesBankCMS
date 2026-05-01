@@ -32,6 +32,32 @@ include_once 'db_function/db.php';
             margin: 0 auto;
             opacity: 0.95;
         }
+
+        .nav-link {
+            position: relative;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: 0;
+            left: 0;
+            background-color: #0d6efd;
+            transition: width 0.3s ease;
+        }
+
+        .nav-link:hover::after {
+            width: 100%;
+        }
+
+        .nav-link:hover {
+            color: #0d6efd !important;
+        }
+
         .section-padding {
             padding: 60px 0;
         }

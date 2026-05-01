@@ -1,25 +1,35 @@
 <?php
 session_start();
 
-if (isset($_SERVER['REQUEST_METHOD']) && $_SERVER['REQUEST_METHOD'] === 'POST') {
-    // Get form data
-    $fullname = trim($_POST['fullname'] ?? '');
-    $email = trim($_POST['email'] ?? '');
-    $phone = trim($_POST['phone'] ?? '');
-    $branch = trim($_POST['branch'] ?? '');
-    $message = trim($_POST['message'] ?? '');
+use PHPMailer\PHPMailer\PHPMailer;
+use PHPMailer\PHPMailer\Exception;
 
-    // Validation
+require '../vendor/autoload.php';
+
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+
+    // =========================
+    // FORM DATA
+    // =========================
+    $fullname = trim($_POST['fullname'] ?? '');
+    $email    = trim($_POST['email'] ?? '');
+    $phone    = trim($_POST['phone'] ?? '');
+    $branch   = trim($_POST['branch'] ?? '');
+    $message  = trim($_POST['message'] ?? '');
+
+    // =========================
+    // VALIDATION
+    // =========================
     $errors = [];
-    
+
     if (empty($fullname)) {
         $errors[] = "Full name is required.";
     }
-    
+
     if (empty($email) || !filter_var($email, FILTER_VALIDATE_EMAIL)) {
         $errors[] = "Valid email address is required.";
     }
-    
+
     if (empty($message)) {
         $errors[] = "Message is required.";
     }
@@ -30,109 +40,158 @@ if (isset($_SERVER['REQUEST_METHOD']) && $_SERVER['REQUEST_METHOD'] === 'POST') 
         exit;
     }
 
-    // Prepare email content
-    $to = 'namuagjubil30@gmail.com'; // Change to your email
-    $subject = 'New Contact Inquiry from ' . htmlspecialchars($fullname);
-    
+    // =========================
+    // ADMIN EMAIL CONTENT
+    // =========================
+    $to = 'jubilembrado050400@gmail.com';
+
+    $subject = 'New Contact Inquiry from ' . $fullname;
+
     $emailBody = "
     <html>
-    <head>
-        <style>
-            body { font-family: Arial, sans-serif; color: #333; }
-            .container { max-width: 600px; margin: 0 auto; padding: 20px; }
-            .header { background: #002366; color: white; padding: 15px; border-radius: 5px 5px 0 0; }
-            .content { background: #f9f9f9; padding: 20px; border: 1px solid #ddd; }
-            .field { margin-bottom: 15px; }
-            .field-label { font-weight: bold; color: #002366; }
-            .field-value { color: #555; }
-            .footer { background: #002366; color: white; padding: 10px; text-align: center; border-radius: 0 0 5px 5px; font-size: 12px; }
-        </style>
-    </head>
-    <body>
-        <div class=\"container\">
-            <div class=\"header\">
-                <h2>New Contact Inquiry</h2>
-            </div>
-            <div class=\"content\">
-                <div class=\"field\">
-                    <span class=\"field-label\">Name:</span>
-                    <div class=\"field-value\">" . htmlspecialchars($fullname) . "</div>
-                </div>
-                <div class=\"field\">
-                    <span class=\"field-label\">Email:</span>
-                    <div class=\"field-value\"><a href=\"mailto:" . htmlspecialchars($email) . "\">" . htmlspecialchars($email) . "</a></div>
-                </div>
-                <div class=\"field\">
-                    <span class=\"field-label\">Phone:</span>
-                    <div class=\"field-value\">" . (empty($phone) ? 'N/A' : htmlspecialchars($phone)) . "</div>
-                </div>
-                <div class=\"field\">
-                    <span class=\"field-label\">Branch Inquiry:</span>
-                    <div class=\"field-value\">" . htmlspecialchars($branch) . "</div>
-                </div>
-                <div class=\"field\">
-                    <span class=\"field-label\">Message:</span>
-                    <div class=\"field-value\" style=\"background: white; padding: 10px; border-left: 3px solid #0d6efd; white-space: pre-wrap;\">" . htmlspecialchars($message) . "</div>
-                </div>
-            </div>
-            <div class=\"footer\">
-                <p>Sent from Ozamiz City People's Multi-Purpose Cooperative Website</p>
-            </div>
+    <body style='font-family:Arial;color:#333'>
+        <h2>New Contact Inquiry</h2>
+
+        <p><strong>Name:</strong> $fullname</p>
+        <p><strong>Email:</strong> $email</p>
+        <p><strong>Phone:</strong> " . ($phone ?: 'N/A') . "</p>
+        <p><strong>Branch:</strong> $branch</p>
+
+        <p><strong>Message:</strong></p>
+        <div style='background:#f4f4f4;padding:10px;border-left:4px solid #0d6efd;'>
+            " . nl2br(htmlspecialchars($message)) . "
         </div>
     </body>
     </html>
     ";
 
-    // Email headers
-    $headers = "MIME-Version: 1.0" . "\r\n";
-    $headers .= "Content-type: text/html; charset=UTF-8" . "\r\n";
-    $headers .= "From: " . htmlspecialchars($email) . "\r\n";
-    $headers .= "Reply-To: " . htmlspecialchars($email) . "\r\n";
+    // =========================
+    // SMTP CONFIG (SINGLE ACCOUNT)
+    // =========================
+    //TESTING EMAIL ACCOUNT - REPLACE WITH YOUR OWN CREDENTIALS
+    $smtpUser = 'YOUR_EMAIL@gmail.com';
+    $smtpPass = 'YOUR_APP_PASSWORD'; // Use an app password if 2FA is enabled
 
-    // Send email
-    if (mail($to, $subject, $emailBody, $headers)) {
-        $_SESSION['contact_success'] = "Thank you! Your inquiry has been sent successfully. We'll get back to you soon.";
-        
-        // Optional: Send confirmation email to user
-        $userSubject = "We Received Your Inquiry - Ozamiz City People's MPC";
-        $userBody = "
-        <html>
-        <head>
-            <style>
-                body { font-family: Arial, sans-serif; color: #333; }
-                .container { max-width: 600px; margin: 0 auto; padding: 20px; }
-                .header { background: #002366; color: white; padding: 15px; border-radius: 5px 5px 0 0; }
-                .content { background: #f9f9f9; padding: 20px; border: 1px solid #ddd; }
-                .footer { background: #002366; color: white; padding: 10px; text-align: center; border-radius: 0 0 5px 5px; font-size: 12px; }
-            </style>
-        </head>
-        <body>
-            <div class=\"container\">
-                <div class=\"header\">
-                    <h2>Inquiry Confirmation</h2>
-                </div>
-                <div class=\"content\">
-                    <p>Hi " . htmlspecialchars($fullname) . ",</p>
-                    <p>Thank you for contacting Ozamiz City People's Multi-Purpose Cooperative. We have received your inquiry and will respond to you within 24-48 business hours.</p>
-                    <p><strong>Your Reference Message:</strong></p>
-                    <p style=\"background: white; padding: 10px; border-left: 3px solid #0d6efd; white-space: pre-wrap;\">" . htmlspecialchars($message) . "</p>
-                    <p>Best regards,<br>Ozamiz City People's MPC Team</p>
-                </div>
-                <div class=\"footer\">
-                    <p>Contact us: ocpcozamiz@gmail.com | (088) 521-0296</p>
-                </div>
-            </div>
-        </body>
-        </html>
-        ";
-        
-        $userHeaders = "MIME-Version: 1.0" . "\r\n";
-        $userHeaders .= "Content-type: text/html; charset=UTF-8" . "\r\n";
-        $userHeaders .= "From: ocpcozamiz@gmail.com\r\n";
-        
-        mail($email, $userSubject, $userBody, $userHeaders);
-    } else {
-        $_SESSION['contact_error'] = "Failed to send inquiry. Please try again later.";
+    try {
+
+        // =========================
+        // 1. ADMIN EMAIL
+        // =========================
+        $mail = new PHPMailer(true);
+        $mail->isSMTP();
+        $mail->Host = 'smtp.gmail.com';
+        $mail->SMTPAuth = true;
+        $mail->Username = $smtpUser;
+        $mail->Password = $smtpPass;
+        $mail->SMTPSecure = 'tls';
+        $mail->Port = 587;
+
+        $mail->setFrom($smtpUser, 'Website Contact');
+        $mail->addAddress($to);
+        $mail->addReplyTo($email, $fullname);
+
+        $mail->isHTML(true);
+        $mail->Subject = $subject;
+        $mail->Body = $emailBody;
+
+        $mail->send();
+
+
+        // =========================
+        // 2. CUSTOMER AUTO-REPLY (BANK STYLE)
+        // =========================
+        $mail2 = new PHPMailer(true);
+
+        $mail2->isSMTP();
+        $mail2->Host = 'smtp.gmail.com';
+        $mail2->SMTPAuth = true;
+        $mail2->Username = $smtpUser;
+        $mail2->Password = $smtpPass;
+        $mail2->SMTPSecure = 'tls';
+        $mail2->Port = 587;
+
+        $mail2->setFrom($smtpUser, 'Ozamiz City People\'s MPC');
+        $mail2->addAddress($email);
+
+        $mail2->isHTML(true);
+        $mail2->Subject = "Inquiry Received - Ozamiz City People's MPC";
+
+        $mail2->Body = "
+<html>
+<body style='margin:0;padding:0;background:#f5f7fb;font-family:Arial, sans-serif;'>
+
+<div style='max-width:600px;margin:30px auto;background:#ffffff;border-radius:10px;overflow:hidden;border:1px solid #e6e9ef;'>
+
+    <!-- HEADER -->
+    <div style='background:#002366;color:#ffffff;padding:20px;text-align:center;'>
+        <h2 style='margin:0;'>Ozamiz City People's MPC</h2>
+        <p style='margin:5px 0 0;font-size:13px;'>Official Customer Support Confirmation</p>
+    </div>
+
+    <!-- BODY -->
+    <div style='padding:25px;color:#333;'>
+
+        <p style='font-size:16px;'>Dear <strong>" . htmlspecialchars($fullname) . "</strong>,</p>
+
+        <p style='line-height:1.6;'>
+            Thank you for contacting <strong>Ozamiz City People's Multi-Purpose Cooperative</strong>.
+            We have successfully received your inquiry and it is now being reviewed by our support team.
+        </p>
+
+        <!-- REFERENCE BOX -->
+        <div style='background:#f0f4ff;border-left:4px solid #0d6efd;padding:12px;margin:20px 0;border-radius:5px;'>
+            <strong>Reference Details</strong><br><br>
+            <b>Name:</b> " . htmlspecialchars($fullname) . "<br>
+            <b>Email:</b> " . htmlspecialchars($email) . "<br>
+            <b>Branch:</b> " . htmlspecialchars($branch) . "<br>
+        </div>
+
+        <!-- MESSAGE -->
+        <p><strong>Your Message:</strong></p>
+        <div style='background:#fafafa;border:1px solid #eee;padding:12px;border-radius:5px;white-space:pre-wrap;'>
+            " . nl2br(htmlspecialchars($message)) . "
+        </div>
+
+        <!-- NOTICE -->
+        <div style='margin-top:25px;padding:15px;background:#fff8e5;border-left:4px solid #f0ad4e;border-radius:5px;'>
+            <strong>Important Notice:</strong><br>
+            Our team will respond within <b>24–48 business hours</b>.
+            Please keep this email for your reference.
+        </div>
+
+        <p style='margin-top:25px;line-height:1.6;'>
+            If you need urgent assistance, you may reply directly to this email.
+        </p>
+
+        <p>
+            Sincerely,<br>
+            <strong>Customer Support Team</strong><br>
+            Ozamiz City People's MPC
+        </p>
+
+    </div>
+
+    <!-- FOOTER -->
+    <div style='background:#002366;color:#fff;text-align:center;padding:15px;font-size:12px;'>
+        © " . date('Y') . " Ozamiz City People's Multi-Purpose Cooperative. All rights reserved.
+    </div>
+
+</div>
+
+</body>
+</html>
+";
+
+        $mail2->send();
+
+
+        // =========================
+        // SUCCESS
+        // =========================
+        $_SESSION['contact_success'] = "Thank you! Your inquiry has been sent successfully.";
+
+    } catch (Exception $e) {
+        $_SESSION['contact_error'] = "Mailer Error: " . $mail->ErrorInfo;
     }
 
     header('Location: ../contact.php');
