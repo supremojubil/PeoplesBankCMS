@@ -232,14 +232,21 @@ include_once 'db_function/db.php';
                         <i class="bi bi-telephone-fill"></i>
                         <div>
                             <h6 class="mb-1">Phone</h6>
-                            <p class="mb-0">(088) 528-1234</p>
+                            <p class="mb-0">(088) 521-0296 / 521 - 4842</p>
+                        </div>
+                    </div>
+                    <div class="contact-detail d-flex align-items-start">
+                        <i class="bi bi-phone-fill"></i>
+                        <div>
+                            <h6 class="mb-1">Mobile</h6>
+                            <p class="mb-0">0997-164-5105 / 0909-198-4912</p>
                         </div>
                     </div>
                     <div class="contact-detail d-flex align-items-start">
                         <i class="bi bi-envelope-fill"></i>
                         <div>
                             <h6 class="mb-1">Email</h6>
-                            <p class="mb-0">info@peoplesbankozamiz.com</p>
+                            <p class="mb-0">ocpcozamiz@gmail.com</p>
                         </div>
                     </div>
                     <div class="contact-detail d-flex align-items-start">
