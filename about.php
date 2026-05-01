@@ -128,6 +128,14 @@
         .bod-img:hover { transform: scale(1.02); box-shadow: 0 10px 20px rgba(0,0,0,0.2); }
         
         .carousel-item img { max-height: 85vh; object-fit: contain; background-color: #000; }
+
+        .lihoc-text {
+            font-size: 2.2rem;
+            font-weight: 800;
+            letter-spacing: 12px;
+            color: #ffc107;
+            text-shadow: 2px 2px 8px rgba(0,0,0,0.3);
+        }
     </style>
 </head>
 <body>
@@ -180,12 +188,13 @@
 
         <div class="text-center">
             <h2 class="mb-3 fw-bold text-warning">CORE VALUES</h2>
+            <br/>
+            <h3 class="lihoc-text mb-4">L.I.H.O.K.</h3>
             <div class="row g-4 justify-content-center px-lg-4 px-xl-2">
                 <div class="col-md-4 col-lg-3 col-xl">
                     <div class="card card-value p-4 shadow-sm h-100">
                     <i class="bi bi-heart-fill display-5 mb-3"></i>
                     <h4 class="mb-2">LOYALTY</h4>
-                    <p class="mb-0 text-muted">Faithful commitment to our members and shared goals.</p>
                 </div>
             </div>
 
@@ -193,7 +202,6 @@
                 <div class="card card-value p-4 shadow-sm h-100">
                 <i class="bi bi-shield-check display-5 mb-3"></i>
                 <h4 class="mb-2">INTEGRITY</h4>
-                <p class="mb-0 text-muted">Doing the right thing, even when no one is watching.</p>
             </div>
         </div>
 
@@ -201,7 +209,6 @@
             <div class="card card-value p-4 shadow-sm h-100">
                 <i class="bi bi-patch-check display-5 mb-3"></i>
                 <h4 class="mb-2">HONESTY</h4>
-                <p class="mb-0 text-muted">Transparency and truthfulness in every interaction.</p>
             </div>
         </div>
 
@@ -209,7 +216,6 @@
             <div class="card card-value p-4 shadow-sm h-100">
                 <i class="bi bi-eye display-5 mb-3"></i>
                 <h4 class="mb-2">OPENNESS</h4>
-                <p class="mb-0 text-muted">Promoting clear communication and accessibility.</p>
             </div>
         </div>
 
@@ -217,7 +223,6 @@
             <div class="card card-value p-4 shadow-sm h-100">
                 <i class="bi bi-hand-thumbs-up-fill display-5 mb-3"></i>
                 <h4 class="mb-2">KINDNESS</h4>
-                <p class="mb-0 text-muted">Serving with compassion, respect, and a helpful spirit.</p>
             </div>
         </div>
     </div>
