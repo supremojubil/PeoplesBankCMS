@@ -21,24 +21,40 @@ include_once 'db_function/db.php';
             color: #fff;
             padding: 80px 0;
             text-align: center;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
         }
         .page-header h1 {
-            font-size: 3rem;
-            letter-spacing: 0.04em;
+            font-size: 3.5rem;
+            font-weight: 700;
+            margin-bottom: 15px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
         }
         .page-header p {
-            font-size: 1.1rem;
-            max-width: 760px;
-            margin: 0 auto;
+            font-size: 1.3rem;
             opacity: 0.95;
         }
+        /* Navbar styles */
+        .navbar {
+            transition: all 0.4s ease-in-out;
+            padding: 15px 0;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        }
 
+        .navbar.scrolled {
+            background-color: #ffffff !important;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            padding: 5px 0;
+        }
+
+        /* NAV LINK BASE */
         .nav-link {
             position: relative;
             font-weight: 500;
             transition: color 0.3s ease;
+            color: #333;
         }
 
+        /* HOVER ANIMATION */
         .nav-link::after {
             content: '';
             position: absolute;
@@ -58,6 +74,14 @@ include_once 'db_function/db.php';
             color: #0d6efd !important;
         }
 
+        /* ACTIVE LINK (IMPORTANT) */
+        .nav-link.active {
+            color: #0d6efd !important;
+        }
+
+        .nav-link.active::after {
+            width: 100%;
+        }
         .section-padding {
             padding: 60px 0;
         }

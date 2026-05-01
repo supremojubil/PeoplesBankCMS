@@ -67,6 +67,7 @@
                     <li><i class="bi bi-chevron-right"></i><a href="index.php">Home</a></li>
                     <li><i class="bi bi-chevron-right"></i><a href="about.php">About</a></li>
                     <li><i class="bi bi-chevron-right"></i><a href="topics.php">Topics</a></li>
+                    <li><i class="bi bi-chevron-right"></i><a href="announcement.php">What's New</a></li>
                     <li><i class="bi bi-chevron-right"></i><a href="productservices.php">Products & Services</a></li>
                     <li><i class="bi bi-chevron-right"></i><a href="contact.php">Contact</a></li>
                 </ul>

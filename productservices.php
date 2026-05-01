@@ -27,7 +27,7 @@
             background-color: var(--bg-light);
         }
 
-        /* Navbar Styling */
+       /* Navbar styles */
         .navbar {
             transition: all 0.4s ease-in-out;
             padding: 15px 0;
@@ -40,12 +40,15 @@
             padding: 5px 0;
         }
 
+        /* NAV LINK BASE */
         .nav-link {
             position: relative;
             font-weight: 500;
             transition: color 0.3s ease;
+            color: #333;
         }
 
+        /* HOVER ANIMATION */
         .nav-link::after {
             content: '';
             position: absolute;
@@ -53,7 +56,7 @@
             height: 2px;
             bottom: 0;
             left: 0;
-            background-color: var(--primary-light);
+            background-color: #0d6efd;
             transition: width 0.3s ease;
         }
 
@@ -62,9 +65,17 @@
         }
 
         .nav-link:hover {
-            color: var(--primary-light) !important;
+            color: #0d6efd !important;
         }
 
+        /* ACTIVE LINK (IMPORTANT) */
+        .nav-link.active {
+            color: #0d6efd !important;
+        }
+
+        .nav-link.active::after {
+            width: 100%;
+        }
         /* Page Header */
         .page-header {
             background: linear-gradient(135deg, var(--primary-blue) 0%, var(--primary-light) 100%);

@@ -8,27 +8,63 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
     <style>
-        .page-header { background: #f8f9fa; padding: 60px 0; border-bottom: 1px solid #dee2e6; }
-        .section-padding { padding: 80px 0; }
-        .navbar {
-            transition: all 0.4s ease-in-out;
-            padding: 15px 0; /* Slightly larger initial padding */
+        .page-header {
+            background: linear-gradient(135deg, #002366 0%, #0d6efd 100%);
+            color: white;
+            padding: 100px 0;
+            position: relative;
+            overflow: hidden;
         }
 
-        /* Effect when scrolling down */
+        /* subtle overlay pattern */
+        .page-header::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('https://www.transparenttextures.com/patterns/cubes.png');
+            opacity: 0.08;
+        }
+
+        .page-header .container {
+            position: relative;
+            z-index: 2;
+        }
+
+        .page-header h1 {
+            font-size: 3.2rem;
+            font-weight: 800;
+            text-shadow: 0 2px 10px rgba(0,0,0,0.25);
+        }
+
+        .page-header p {
+            font-size: 1.2rem;
+            opacity: 0.9;
+        }
+        /* Navbar styles */
+        .navbar {
+            transition: all 0.4s ease-in-out;
+            padding: 15px 0;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        }
+
         .navbar.scrolled {
             background-color: #ffffff !important;
             box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-            padding: 5px 0; /* Shrink effect */
+            padding: 5px 0;
         }
 
-        /* Animated Underline for Nav Links */
+        /* NAV LINK BASE */
         .nav-link {
             position: relative;
             font-weight: 500;
             transition: color 0.3s ease;
+            color: #333;
         }
 
+        /* HOVER ANIMATION */
         .nav-link::after {
             content: '';
             position: absolute;
@@ -36,7 +72,7 @@
             height: 2px;
             bottom: 0;
             left: 0;
-            background-color: #0d6efd; /* Your text-primary color */
+            background-color: #0d6efd;
             transition: width 0.3s ease;
         }
 
@@ -47,10 +83,23 @@
         .nav-link:hover {
             color: #0d6efd !important;
         }
+
+        /* ACTIVE LINK (IMPORTANT) */
+        .nav-link.active {
+            color: #0d6efd !important;
+        }
+
+        .nav-link.active::after {
+            width: 100%;
+        }
+        
+        .section-padding { 
+            padding: 80px 0; 
+        }
+        
         /* Background Image Section */
         .bg-concept {
-            background: linear-gradient(rgba(0, 43, 91, 0.85), rgba(0, 43, 91, 0.85)), 
-                        url('assets/img/pbbackground.jpg');
+            background: linear-gradient(rgba(0, 43, 91, 0.85), rgba(0, 43, 91, 0.85)), url('assets/img/pbbackground.jpg');
             background-size: cover;
             background-position: center;
             background-attachment: fixed; /* Parallax effect */
@@ -85,10 +134,20 @@
 
 <?php include_once 'includes/navbar.php'; ?>
 
-<div class="page-header text-center">
-    <div class="container">
-        <h1 class="display-4 fw-bold text-primary">About Us</h1>
-        <p class="lead text-muted">Learn more about our journey and the people behind the Cooperative.</p>
+<div class="page-header">
+    <div class="container text-center text-white">
+        <!-- Optional small badge -->
+        <div class="mb-3">
+            <span class="badge bg-warning text-dark px-3 py-2 rounded-pill">
+                Who We Are
+            </span>
+        </div>
+        <h1 class="display-4 fw-bold mb-3">
+            About Us
+        </h1>
+        <p class="lead mb-0" style="max-width: 700px; margin: 0 auto; opacity: 0.95;">
+            Learn more about our journey, mission, and the dedicated people behind Ozamiz City People’s Multi-Purpose Cooperative.
+        </p>
     </div>
 </div>
 

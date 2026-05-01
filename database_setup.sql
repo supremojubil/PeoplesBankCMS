@@ -42,6 +42,21 @@ CREATE TABLE IF NOT EXISTS topic_content (
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     FOREIGN KEY (topic_id) REFERENCES topics(id) ON DELETE CASCADE
 );
+-- Announcements table for news and updates
+CREATE TABLE IF NOT EXISTS announcements (
+    id INT PRIMARY KEY AUTO_INCREMENT,
+    title VARCHAR(255) NOT NULL,
+    content TEXT NULL, 
+    image VARCHAR(500) NULL,
+    slug VARCHAR(255) UNIQUE NULL,
+    status ENUM('published', 'draft', 'archived') DEFAULT 'published',
+    is_featured TINYINT(1) DEFAULT 0,
+    posted_at DATETIME DEFAULT CURRENT_TIMESTAMP,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+    created_by INT NULL,
+    FOREIGN KEY (created_by) REFERENCES users(id)
+);
 
 -- Insert default admin user (password: admin123)
 INSERT IGNORE INTO users (username, password, email, role) VALUES

@@ -27,18 +27,28 @@
             color: var(--text);
         }
 
+        /* Navbar styles */
         .navbar {
             transition: all 0.4s ease-in-out;
             padding: 15px 0;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
         }
 
+        .navbar.scrolled {
+            background-color: #ffffff !important;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            padding: 5px 0;
+        }
+
+        /* NAV LINK BASE */
         .nav-link {
             position: relative;
             font-weight: 500;
             transition: color 0.3s ease;
+            color: #333;
         }
 
+        /* HOVER ANIMATION */
         .nav-link::after {
             content: '';
             position: absolute;
@@ -56,6 +66,15 @@
 
         .nav-link:hover {
             color: #0d6efd !important;
+        }
+
+        /* ACTIVE LINK (IMPORTANT) */
+        .nav-link.active {
+            color: #0d6efd !important;
+        }
+
+        .nav-link.active::after {
+            width: 100%;
         }
 
         .hero-membership {

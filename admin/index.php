@@ -15,7 +15,7 @@ $recentTopics = $pdo->query("SELECT title, status, updated_at FROM topics ORDER 
 <head>
     <meta charset="UTF-8">
     <title>People's Bank Dashboard</title>
-    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../assets/css/style.css">
 </head>
 
 <body>
