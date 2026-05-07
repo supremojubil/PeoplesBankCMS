@@ -69,8 +69,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     // SMTP CONFIG (SINGLE ACCOUNT)
     // =========================
     //TESTING EMAIL ACCOUNT - REPLACE WITH YOUR OWN CREDENTIALS
-    $smtpUser = 'YOUR_EMAIL@gmail.com';
-    $smtpPass = 'YOUR_APP_PASSWORD'; // Use an app password if 2FA is enabled
+    $smtpUser = 'jubilembrado050400@gmail.com';
+    $smtpPass = 'yqhkvijxhjekuaic'; // Use an app password if 2FA is enabled
 
     try {
 

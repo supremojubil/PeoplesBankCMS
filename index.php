@@ -23,6 +23,9 @@ $topics = $stmt2->fetchAll();
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
 
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="assets/img/logo.png">
+
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -189,7 +192,7 @@ $topics = $stmt2->fetchAll();
         <!-- SLIDE 2 -->
         <div class="carousel-item">
             <div class="hero-slide d-flex align-items-center justify-content-center text-center"
-                 style="background: url('assets/img/slide2.jpg') center/cover no-repeat;">
+                 style="background: url('assets/img/slide2.png') center/cover no-repeat;">
                 
                 <div class="overlay"></div>
 
@@ -203,7 +206,7 @@ $topics = $stmt2->fetchAll();
         <!-- SLIDE 3 -->
         <div class="carousel-item">
             <div class="hero-slide d-flex align-items-center justify-content-center text-center"
-                 style="background: url('assets/img/slide3.jpg') center/cover no-repeat;">
+                 style="background: url('assets/img/slide3.png') center/cover no-repeat;">
                 
                 <div class="overlay"></div>
 

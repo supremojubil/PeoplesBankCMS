@@ -7,6 +7,9 @@
     <title>About Us - Ozamiz City People's MPC</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="assets/img/logo.png">
     <style>
         .page-header {
             background: linear-gradient(135deg, #002366 0%, #0d6efd 100%);
