@@ -75,7 +75,7 @@
             <div class="col-md-4">
                 <h5 class="footer-title">Connect With Us</h5>
                 <p>Follow us for updates, news, and service announcements.</p>
-                <p><i class="bi bi-facebook"></i><a href="https://www.facebook.com/profile.php?id=100073995877832" target="_blank">People's Bank on Facebook</a></p>
+                <p><i class="bi bi-facebook"></i><a href="https://www.facebook.com/profile.php?id=61573312300993" target="_blank">People's Bank on Facebook</a></p>
             </div>
         </div>
         <div class="footer-legal text-center">

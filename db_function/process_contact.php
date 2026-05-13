@@ -43,7 +43,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     // =========================
     // ADMIN EMAIL CONTENT
     // =========================
-    $to = 'jubilembrado050400@gmail.com';
+    $to = 'ocpcozamiz@gmail.com';
 
     $subject = 'New Contact Inquiry from ' . $fullname;
 
@@ -69,8 +69,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     // SMTP CONFIG (SINGLE ACCOUNT)
     // =========================
     //TESTING EMAIL ACCOUNT - REPLACE WITH YOUR OWN CREDENTIALS
-    $smtpUser = 'jubilembrado050400@gmail.com';
-    $smtpPass = 'yqhkvijxhjekuaic'; // Use an app password if 2FA is enabled
+    $smtpUser = 'ocpcozamiz@gmail.com';
+    $smtpPass = 'qxkrevwhxsahfhki'; // Use an app password if 2FA is enabled
 
     try {
 
